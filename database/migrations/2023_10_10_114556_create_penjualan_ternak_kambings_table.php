@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\PenjualanTernakKambing;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -24,6 +25,26 @@ class CreatePenjualanTernakKambingsTable extends Migration
             $table->string('lampiran_foto');
             $table->timestamps();
         });
+
+        PenjualanTernakKambing::create([
+            'user_id'=>2,
+            'umur'=>'2',
+            'jenis'=>'kambing jawa',
+            'kelebihan_kekurangan'=>'tidak ada',
+            'kisaran_harga_jual'=>'1200000',
+            'no_wa'=>'08225681313',
+            'lampiran_foto'=>'kambing2.jpeg',
+        ]);
+
+        PenjualanTernakKambing::create([
+            'user_id'=>2,
+            'umur'=>'1',
+            'jenis'=>'kambing gibas',
+            'kelebihan_kekurangan'=>'tidak ada',
+            'kisaran_harga_jual'=>'1800000',
+            'no_wa'=>'08225681313',
+            'lampiran_foto'=>'kambing1.jpeg',
+        ]);
     }
 
     /**

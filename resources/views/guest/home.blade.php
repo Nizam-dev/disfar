@@ -63,22 +63,29 @@
             </div>
         </div>
         <div class="row">
-
+            @foreach($penjualan_ternak as $p)
 
             <div class="col-md-4 ftco-animate">
                 <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url({{asset('public/images/kambing/kambing1.jpeg')}});"></a>
+                    <a href="#" class="img" style="background-image: url({{$p->lampiran_foto}});">
+                </a>
                     <div class="text p-4">
-                        <span class="price">Rp. 3.500.000</span>
-                        <span class="days">Umur 2 Tahun</span>
-                        <h3><a href="#">Kambing Gibas</a></h3>
+                        <!-- <span class="price">Rp. {{$p->kisaran_harga_jual}}</span> -->
+                        <span class="price">Rp. {{ number_format($p->kisaran_harga_jual, 0, ',', '.') }}</span>
+
+                        <span class="days">Umur {{$p->umur}} Tahun</span>
+                        <h3><a href="#">{{$p->jenis}}</a></h3>
+                        <a href="https://api.whatsapp.com/send={{$p->no_wa}}" class="btn btn-sm float-right btn-primary">
+                        <i class="fab fa-whatsapp"></i>
+                        </a>
+
                         <a class="btn btn-sm float-right btn-primary">Lihat</a>
-                        <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+                        <p class="location"><span class="ion-ios-map"></span>  Indonesia</p>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4 ftco-animate">
+            @endforeach
+            <!-- <div class="col-md-4 ftco-animate">
                 <div class="project-wrap">
                     <a href="#" class="img" style="background-image: url({{asset('public/images/kambing/kambing2.jpeg')}});"></a>
                     <div class="text p-4">
@@ -115,7 +122,7 @@
                         <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
    
         </div>
     </div>
