@@ -4,9 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Modernize Free</title>
+    <title>DISFAR</title>
     <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
     <link rel="stylesheet" href="{{asset('public/template-admin/assets/css/styles.min.css') }}" />
+    <link rel="stylesheet" href="{{asset('public/template-admin/assets/css/dataTables.bootstrap5.min.css') }}">
+
 </head>
 
 <body>
@@ -25,11 +27,11 @@
                 <!--  Row 1 -->
                 @yield('content')
 
-                <div class="py-6 px-6 text-center">
+                <!-- <div class="py-6 px-6 text-center">
                     <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank"
                             class="pe-1 text-primary text-decoration-underline">AdminMart.com</a> Distributed by <a
                             href="https://themewagon.com">ThemeWagon</a></p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

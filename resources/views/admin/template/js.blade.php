@@ -5,3 +5,7 @@
 <script src="{{ asset('public/template-admin/assets/libs/apexcharts/dist/apexcharts.min.js')}}"></script>
 <script src="{{ asset('public/template-admin/assets/libs/simplebar/dist/simplebar.js')}}"></script>
 <script src="{{ asset('public/template-admin/assets/js/dashboard.js')}}"></script>
+<script src="{{ asset('public/template-admin/assets/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{ asset('public/template-admin/assets/js/dataTables.bootstrap5.min.js')}}"></script>
+
+@stack('js')
