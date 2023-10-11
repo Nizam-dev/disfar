@@ -36,7 +36,7 @@ class CreateUsersTable extends Migration
             'password'=>bcrypt(123),
             'role'=>'admin',
             'nohp'=>'081123',
-            'status_akun'=>1,
+            'status_akun'=>"1",
         ]);
 
         User::create([
@@ -46,7 +46,7 @@ class CreateUsersTable extends Migration
             'password'=>bcrypt(123),
             'role'=>'peternak',
             'nohp'=>'086181',
-            'status_akun'=>1,
+            'status_akun'=>"1",
 
         ]);
 
