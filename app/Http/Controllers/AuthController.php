@@ -93,16 +93,14 @@ class AuthController extends Controller
             if(User::where('username',$request->username)->where('status_akun','1')->first()){
             if (auth()->attempt(array('username' => $input['username'], 'password' => $input['password']))) {
                 
-            
-                   
                 switch (Auth::user()->role) {
                     case 'admin':
                     
-                        return redirect('/admin/dashboard')->with('message', 'Berhasil Login');
+                        return redirect('/admin/dashboard')->with('success', 'Berhasil Login');
                         break;
                     case 'peternak':
                     
-                        return redirect('/peternak/dashboard')->with('message', 'Berhasil Login');
+                        return redirect('/peternak/dashboard')->with('success', 'Berhasil Login');
                         break;
                     default:
                         return redirect('/login');

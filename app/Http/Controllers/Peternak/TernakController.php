@@ -47,7 +47,7 @@ class TernakController extends Controller
         ]);
 
         ProfilKambing::findOrFail($id)->update($data);
-        return redirect('peternak/ternak')->with('success','Profil Kambing Berhasil Ditambahkan');
+        return redirect('peternak/ternak')->with('success','Profil Kambing Berhasil Diubah');
     }
     public function hapus_profil_kambing($id)
     {
