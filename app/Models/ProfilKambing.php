@@ -15,4 +15,22 @@ class ProfilKambing extends Model
             'user_id'
 
     ];
+
+    public function riwayat_kesehatan()
+    {
+        return $this->hasMany(RiwayatKesehatanKambing::class);
+    }
+
+    public function riwayat_reproduksi()
+    {
+        return $this->hasMany(RiwayatReproduksiKambing::class);
+    }
+
+    public function delete()
+    {
+        $this->riwayat_kesehatan()->delete();
+        $this->riwayat_reproduksi()->delete();
+        return parent::delete();
+    }
+
 }

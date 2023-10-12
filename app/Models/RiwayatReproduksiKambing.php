@@ -18,4 +18,7 @@ class RiwayatReproduksiKambing extends Model
             'tanggal_melahirkan'
 
     ];
+
+
+
 }
