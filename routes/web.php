@@ -28,6 +28,7 @@ Route::post('postregister', [AuthController::class, 'postregister']);
 Route::get('logout', [AuthController::class, 'logout']);
 
 // Peternak
+Route::middleware(['role:admin'])->group(function () {  
 Route::prefix('peternak')->group(function () {
 
     Route::get('dashboard',[PeternakDashboardController::class,'index']);
@@ -54,7 +55,8 @@ Route::prefix('peternak')->group(function () {
 
 
 });
-
+});
+Route::middleware(['role:admin'])->group(function () {  
 Route::prefix('admin')->group(function () {
     Route::get('dashboard',[DashboardController::class,'index']);
     Route::get('ternak',[TernakController::class,'index']);
@@ -81,8 +83,7 @@ Route::prefix('admin')->group(function () {
     Route::get('edit-verifikasi_akun/{id}',[AkunController::class,'edit']);
     Route::post('update-verifikasi_akun/{id}',[AkunController::class,'update']);
 
-    
-
+});
 
 });
 
