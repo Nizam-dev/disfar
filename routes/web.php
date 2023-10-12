@@ -55,7 +55,7 @@ Route::prefix('peternak')->group(function () {
 });
 
 Route::prefix('admin')->group(function () {
-    Route::get('dashboard',[PeternakDashboardController::class,'index']);
+    Route::get('dashboard',[DashboardController::class,'index']);
     Route::get('ternak',[TernakController::class,'index']);
     Route::get('ternak/tambah',[TernakController::class,'tambah']);
     Route::post('ternak/tambah',[TernakController::class,'tambah_profil_kambing']);

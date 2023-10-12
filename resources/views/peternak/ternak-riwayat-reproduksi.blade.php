@@ -14,14 +14,16 @@
 @section('content')
 
 <h5 class="fw-semibold">
-<a href="{{url('peternak/ternak')}}"><i class="ti ti-arrow-left bg-danger rounded-circle text-white"></i></a>
+<a href="{{url( auth()->user()->role == 'admin' ? 'admin/ternak' : 'peternak/ternak')}}"><i class="ti ti-arrow-left bg-danger rounded-circle text-white"></i></a>
 Riwayat Reproduksi Kambing</h5>
 
 <div class="card">
     <div class="row">
         <div class="col-12" id="data-riwayat">
             <h1 class="px-3 py-3">
+                @if(auth()->user()->id == $user_id)
                 <button onClick="opsi_tambah()" class="btn btn-sm btn-primary float-end">Tambah</button>
+                @endif
             </h1>
             <div class="card-body">
 
@@ -48,9 +50,11 @@ Riwayat Reproduksi Kambing</h5>
                                 <th class="border-bottom-0">
                                     <h6 class="fw-semibold mb-0">Tanggal Melahirkan</h6>
                                 </th>
+                                @if(auth()->user()->id == $user_id)
                                 <th class="border-bottom-0">
                                     <h6 class="fw-semibold mb-0">Opsi</h6>
                                 </th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -63,6 +67,7 @@ Riwayat Reproduksi Kambing</h5>
                                 <td>{{$riwayat->kawin_ternak}}</td>
                                 <td>{{$riwayat->tanggal_kawin}}</td>
                                 <td>{{$riwayat->tanggal_melahirkan}}</td>
+                                @if(auth()->user()->id == $user_id)
                                 <td>
                                     <a  class="btn btn-sm btn-warning" onClick="opsi_edit(this,{{$riwayat}})">
                                         <i class="ti ti-pencil"></i>
@@ -71,6 +76,7 @@ Riwayat Reproduksi Kambing</h5>
                                         <i class="ti ti-trash"></i>
                                     </a>
                                 </td>
+                                @endif
                             </tr>
                             @endforeach
 
@@ -186,7 +192,7 @@ Riwayat Reproduksi Kambing</h5>
         $("[name='tanggal_kawin']").val('')
         $("[name='tanggal_melahirkan']").val('')
         $("#add-riwayat h5").html("Tambah Riwayat")
-        $("#add-riwayat form").attr("action", "{{url('peternak/ternak/riwayat-reproduksi/'.$id)}}")
+        $("#add-riwayat form").attr("action", "{{url( auth()->user()->role == 'admin' ? 'admin/ternak/riwayat-reproduksi/'.$id : 'peternak/ternak/riwayat-reproduksi/'.$id)}}")
     }
 
     let opsi_edit = (el,data)=>{
@@ -200,12 +206,12 @@ Riwayat Reproduksi Kambing</h5>
         $("[name='tanggal_melahirkan']").val(data.tanggal_melahirkan)
         $(el).parent().parent().addClass('selection')
         $("#add-riwayat h5").html("Edit Riwayat")
-        $("#add-riwayat form").attr("action", `{{url('peternak/ternak/edit-riwayat-reproduksi')}}/${data.id}`)
+        $("#add-riwayat form").attr("action", `{{url( auth()->user()->role == 'admin' ?  'admin/ternak/edit-riwayat-reproduksi' : 'peternak/ternak/edit-riwayat-reproduksi')}}/${data.id}`)
     }
 
     let opsi_hapus = (id)=>{
         $("#hapus_data").modal("show")
-        $("#hapus_data #linkhapus").attr('href',`{{url('peternak/ternak/hapus-riwayat-reproduksi')}}/${id}`)
+        $("#hapus_data #linkhapus").attr('href',`{{url( auth()->user()->role == 'admin' ? 'admin/ternak/hapus-riwayat-reproduksi' : 'peternak/ternak/hapus-riwayat-reproduksi')}}/${id}`)
     }
 </script>
 @endpush

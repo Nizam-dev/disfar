@@ -3,12 +3,12 @@
 @section('content')
 
 <h5 class="fw-semibold">
-<a href="{{url('peternak/ternak')}}"><i class="ti ti-arrow-left bg-danger rounded-circle text-white"></i></a>
+<a href="{{url( auth()->user()->role == 'admin' ? 'admin/ternak' : 'peternak/ternak')}}"><i class="ti ti-arrow-left bg-danger rounded-circle text-white"></i></a>
 Tambah Ternak</h5>
 
 <div class="card">
     <div class="card-body">
-        <form action="{{url('peternak/ternak/tambah')}}" method="post">
+        <form action="{{url( auth()->user()->role == 'admin' ? 'admin/ternak/tambah' : 'peternak/ternak/tambah')}}" method="post">
             @csrf
 
             <div class="form-group">

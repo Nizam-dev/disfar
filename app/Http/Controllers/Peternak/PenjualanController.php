@@ -14,7 +14,8 @@ class PenjualanController extends Controller
     {
         $data = PenjualanTernakKambing::where('user_id',auth()->user()->id)->get();
         if(auth()->user()->role == 'admin'){
-            $data = PenjualanTernakKambing::get();
+            $data = PenjualanTernakKambing::with('user')
+            ->get();
         }
         return view('peternak.penjualan',compact('data'));
     }
@@ -45,7 +46,8 @@ class PenjualanController extends Controller
         }
 
         PenjualanTernakKambing::create($data);
-        return redirect('peternak/penjualan')->with('success','Penjualan Kambing Berhasil Ditambahkan');
+        return redirect(auth()->user()->role == 'admin' ? 'admin/penjualan' : 'peternak/penjualan')
+        ->with('success','Penjualan Kambing Berhasil Ditambahkan');
        
     }
 
@@ -74,7 +76,8 @@ class PenjualanController extends Controller
         }
 
         PenjualanTernakKambing::findOrFail($id)->update($data);
-        return redirect('peternak/penjualan')->with('success','Penjualan Kambing Berhasil Diubah');
+        return redirect(auth()->user()->role == 'admin' ? 'admin/penjualan' : 'peternak/penjualan')
+        ->with('success','Penjualan Kambing Berhasil Diubah');
     }
 
     public function hapus($id)

@@ -15,7 +15,7 @@ class TernakController extends Controller
     {
         $data = ProfilKambing::where('user_id',auth()->user()->id)->get();
         if(auth()->user()->role == 'admin'){
-            $data = ProfilKambing::get();
+            $data = ProfilKambing::with('user')->get();
         }
         return view('peternak.ternak',compact('data'));
     }
@@ -35,7 +35,8 @@ class TernakController extends Controller
 
             $data['user_id']=auth()->user()->id;
             ProfilKambing::create($data);
-            return redirect('peternak/ternak')->with('success','Profil Kambing Berhasil Ditambahkan');
+            return redirect(auth()->user()->role == 'admin' ? 'admin/ternak' : 'peternak/ternak')
+            ->with('success','Profil Kambing Berhasil Ditambahkan');
     }
     public function edit_profil_kambing($id){
         $data = ProfilKambing::findOrFail($id);
@@ -50,7 +51,8 @@ class TernakController extends Controller
         ]);
 
         ProfilKambing::findOrFail($id)->update($data);
-        return redirect('peternak/ternak')->with('success','Profil Kambing Berhasil Diubah');
+        return redirect(auth()->user()->role == 'admin' ? 'admin/ternak' : 'peternak/ternak')
+        ->with('success','Profil Kambing Berhasil Diubah');
     }
     public function hapus_profil_kambing($id)
     {
@@ -61,8 +63,9 @@ class TernakController extends Controller
     //riwayat kesehatan kambing
 
     public function riwayat_reproduksi_kambing($id){
+        $user_id = ProfilKambing::findOrFail($id)->user_id;
         $data = RiwayatReproduksiKambing::where('profil_kambing_id',$id)->get();
-        return view('peternak.ternak-riwayat-reproduksi',compact('data','id'));
+        return view('peternak.ternak-riwayat-reproduksi',compact('data','id','user_id'));
     }
 
     public function tambah_riwayat_reproduksi_kambing($id, Request $request){
@@ -102,8 +105,9 @@ class TernakController extends Controller
     //riwayat reproduksi kambing
 
     public function riwayat_kesehatan_kambing($id){
+        $user_id = ProfilKambing::findOrFail($id)->user_id;
         $data = RiwayatKesehatanKambing::where('profil_kambing_id',$id)->get();
-        return view('peternak.ternak-riwayat-kesehatan',compact('data','id'));
+        return view('peternak.ternak-riwayat-kesehatan',compact('data','id','user_id'));
     }
 
     public function tambah_riwayat_kesehatan_kambing($id, Request $request){

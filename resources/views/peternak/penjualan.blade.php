@@ -7,7 +7,7 @@
 <div class="card">
     <div class="card-body p-4">
         <h5 class="card-title fw-semibold mb-4 mb-5">
-            <a href="{{url('peternak/penjualan/tambah')}}" class="btn btn-sm btn-primary float-end">Tambah</a>
+            <a href="{{url( auth()->user()->role == 'admin' ? 'admin/penjualan/tambah' : 'peternak/penjualan/tambah' )}}" class="btn btn-sm btn-primary float-end">Tambah</a>
         </h5>
         <div class="table-responsive">
             <table id="example" class="table text-nowrap mb-0 align-middle">
@@ -56,7 +56,7 @@
                             {{$penjualan->kelebihan_kekurangan}}
                         </td>
                         <td>
-                            {{$penjualan->kisaran_harga_jual}}
+                            Rp. {{ number_format($penjualan->kisaran_harga_jual, 0, ',', '.') }}
                         </td>
                         <td>
                             {{$penjualan->no_wa}}
@@ -67,13 +67,19 @@
 
                         </td>
                         <td>
-                            <a href="{{url('peternak/penjualan/edit/'.$penjualan->id)}}" class="btn btn-sm btn-warning">
-                                <i class="ti ti-pencil"></i>
-                            </a>
-                            <a class="btn btn-sm btn-danger" onClick="opsi_hapus('{{$penjualan->id}}')">
-                                <i class="ti ti-trash"></i>
-                            </a>
-                        </td>
+                            @if(auth()->user()->role == 'admin' && auth()->user()->id != $penjualan->user_id)
+                                    <span class="badge bg-primary rounded-3 ">
+                                        {{$penjualan->user->nama}}
+                                    </span>
+                            @else
+                                <a href="{{url( auth()->user()->role == 'admin' ? 'admin/penjualan/edit/'.$penjualan->id :  'peternak/penjualan/edit/'.$penjualan->id)}}" class="btn btn-sm btn-warning">
+                                    <i class="ti ti-pencil"></i>
+                                </a>
+                                <a class="btn btn-sm btn-danger" onClick="opsi_hapus('{{$penjualan->id}}')">
+                                    <i class="ti ti-trash"></i>
+                                </a>
+                            </td>
+                        @endif
                     </tr>
                     @endforeach
 
@@ -108,7 +114,7 @@
 
     let opsi_hapus = (id) => {
         $("#hapus_data").modal("show")
-        $("#hapus_data #linkhapus").attr('href', `{{url('peternak/penjualan/hapus')}}/${id}`)
+        $("#hapus_data #linkhapus").attr('href', `{{url( auth()->user()->role == 'admin' ? 'admin/penjualan/hapus' : 'peternak/penjualan/hapus')}}/${id}`)
     }
 </script>
 @endpush

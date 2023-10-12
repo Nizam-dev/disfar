@@ -52,17 +52,23 @@
                         </td>
                         <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-2">
-                                <a href="{{url('peternak/ternak/riwayat-reproduksi/'.$kambing->id)}}"><span class="badge bg-primary rounded-3 fw-semibold">Reproduksi</span></a>
-                                <a href="{{url('peternak/ternak/riwayat-kesehatan/'.$kambing->id)}}"><span class="badge bg-success rounded-3 fw-semibold">Kesehatan</span></a>
+                                <a href="{{url( auth()->user()->role == 'admin' ? 'admin/ternak/riwayat-reproduksi/'.$kambing->id : 'peternak/ternak/riwayat-reproduksi/'.$kambing->id)}}"><span class="badge bg-primary rounded-3 fw-semibold">Reproduksi</span></a>
+                                <a href="{{url( auth()->user()->role == 'admin' ? 'admin/ternak/riwayat-kesehatan/'.$kambing->id : 'peternak/ternak/riwayat-kesehatan/'.$kambing->id)}}"><span class="badge bg-success rounded-3 fw-semibold">Kesehatan</span></a>
                             </div>
                         </td>
                         <td>
-                            <a href="{{url('peternak/ternak/edit/'.$kambing->id)}}" class="btn btn-sm btn-warning">
+                            @if(auth()->user()->role == 'admin' && auth()->user()->id != $kambing->user_id)
+                                <span class="badge bg-primary rounded-3 ">
+                                        {{$kambing->user->nama}}
+                                    </span>
+                            @else
+                            <a href="{{url( auth()->user()->role == 'admin' ?  'admin/ternak/edit/'.$kambing->id : 'peternak/ternak/edit/'.$kambing->id)}}" class="btn btn-sm btn-warning">
                                 <i class="ti ti-pencil"></i>
                             </a>
                             <a  class="btn btn-sm btn-danger" onClick="opsi_hapus('{{$kambing->id}}')">
                                 <i class="ti ti-trash"></i>
                             </a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
@@ -98,7 +104,7 @@
 
     let opsi_hapus = (id)=>{
         $("#hapus_data").modal("show")
-        $("#hapus_data #linkhapus").attr('href',`{{url('peternak/ternak/hapus')}}/${id}`)
+        $("#hapus_data #linkhapus").attr('href',`{{url( auth()->user()->role == 'admin' ? 'admin/ternak/hapus' : 'peternak/ternak/hapus')}}/${id}`)
     }
 
 </script>
