@@ -52,6 +52,16 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item">
+                    <a class="sidebar-link  {{request()->is('admin/verifikasi_akun*') ? 'active' :''}}"
+                        href="{{url('admin/verifikasi_akun')}}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-article"></i>
+                        </span>
+                        <span class="hide-menu">Verifikasi Akun</span>
+                    </a>
+                </li>
+
                 @endif
 
             </ul>
