@@ -6,9 +6,7 @@
 
 <div class="card">
     <div class="card-body p-4">
-        <h5 class="card-title fw-semibold mb-4 mb-5">
-            <a href="{{ auth()->user()->role == 'admin' ? url('admin/ternak/tambah') : url('peternak/ternak/tambah') }}" class="btn btn-sm btn-primary float-end">Tambah</a>
-        </h5>
+        
         <div class="table-responsive">
             <table id="example" class="table text-nowrap mb-0 align-middle">
                 <thead class="text-dark fs-4">
@@ -52,7 +50,7 @@
                         </td>
                         <td class="border-bottom-0">
                             <div class="d-flex align-items-center gap-2">
-                                @if($a->status_akun=='1')
+                                @if($a->status_akun=='0')
                                 <a href="#" aria-disabled="true"><span class="badge bg-danger rounded-3 fw-semibold">Belum Verifikasi AKun</span></a>
                               @else
                               <a href="#"><span class="badge bg-success rounded-3 fw-semibold">Sudah Verifikasi AKun</span></a>
@@ -60,12 +58,15 @@
                             </div>
                         </td>
                         <td>
-                            <a href="{{url('admin/verifikasi_akun'.$a->id)}}" class="btn btn-sm btn-warning">
+                        @if($a->status_akun=='1')
+                        @else
+                            <a href="{{url('admin/edit-verifikasi_akun/'.$a->id)}}" class="btn btn-sm btn-warning">
                                 <i class="ti ti-pencil"></i>
                             </a>
-                            <a  class="btn btn-sm btn-danger" onClick="opsi_hapus('{{$a->id}}')">
+                            @endif
+                            <!-- <a  class="btn btn-sm btn-danger" onClick="opsi_hapus('{{$a->id}}')">
                                 <i class="ti ti-trash"></i>
-                            </a>
+                            </a> -->
                         </td>
                     </tr>
                     @endforeach
@@ -101,7 +102,7 @@
 
     let opsi_hapus = (id)=>{
         $("#hapus_data").modal("show")
-        $("#hapus_data #linkhapus").attr('href',`{{url('peternak/ternak/hapus')}}/${id}`)
+        $("#hapus_data #linkhapus").attr('href',`{{url('admin/akun/hapus')}}/${id}`)
     }
 
 </script>
