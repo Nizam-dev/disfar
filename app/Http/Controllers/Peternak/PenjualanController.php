@@ -13,6 +13,9 @@ class PenjualanController extends Controller
     public function index()
     {
         $data = PenjualanTernakKambing::where('user_id',auth()->user()->id)->get();
+        if(auth()->user()->role == 'admin'){
+            $data = PenjualanTernakKambing::get();
+        }
         return view('peternak.penjualan',compact('data'));
     }
     public function tambah()

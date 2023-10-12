@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $penjualan_ternak = PenjualanTernakKambing::paginate(12);
+
+        if($request->has('cari')){
+            $penjualan_ternak = PenjualanTernakKambing::where('jenis','like','%'.$request->cari.'%')->paginate(12);
+        }
 
         foreach($penjualan_ternak as $p){
             $p->lampiran_foto = asset('public/images/kambing/'.$p->lampiran_foto);

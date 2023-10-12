@@ -7,7 +7,7 @@
 <div class="card">
     <div class="card-body p-4">
         <h5 class="card-title fw-semibold mb-4 mb-5">
-            <a href="{{url('peternak/ternak/tambah')}}" class="btn btn-sm btn-primary float-end">Tambah</a>
+            <a href="{{ auth()->user()->role == 'admin' ? url('admin/ternak/tambah') : url('peternak/ternak/tambah') }}" class="btn btn-sm btn-primary float-end">Tambah</a>
         </h5>
         <div class="table-responsive">
             <table id="example" class="table text-nowrap mb-0 align-middle">

@@ -27,24 +27,24 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="search-wrap-1 ftco-animate p-4">
-                    <form action="#" class="search-property-1">
+                    <form action="{{url('')}}" class="search-property-1">
                         <div class="row">
                             <div class="col-lg align-items-end">
                                 <div class="form-group">
                                     <label for="#">Cari</label>
                                     <div class="form-field">
                                         <div class="icon"><span class="ion-ios-search"></span></div>
-                                        <input type="text" class="form-control" placeholder="Cari Kambing">
+                                        <input type="text" class="form-control" placeholder="Cari Kambing" name='cari'>
                                     </div>
                                 </div>
                             </div>
        
                             <div class="col-lg align-self-end">
-                                <div class="form-group">
-                                    <div class="form-field">
-                                        <input type="submit" value="Search" class="form-control btn btn-primary">
+                                    <div class="form-group">
+                                        <div class="form-field">
+                                            <input type="submit" value="Search" class="form-control btn btn-primary">
+                                        </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
                     </form>
@@ -67,7 +67,7 @@
 
             <div class="col-md-4 ftco-animate">
                 <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url({{$p->lampiran_foto}});">
+                    <a href="{{url('kambing/'.$p->id)}}"  class="img" style="background-image: url({{$p->lampiran_foto}});">
                 </a>
                     <div class="text p-4">
                         <!-- <span class="price">Rp. {{$p->kisaran_harga_jual}}</span> -->
@@ -79,7 +79,7 @@
                         <i class="fab fa-whatsapp"></i>
                         </a>
 
-                        <a class="btn btn-sm float-right btn-primary">Lihat</a>
+                        <a href="{{url('kambing/'.$p->id)}}" class="btn btn-sm float-right btn-primary">Lihat</a>
                         <p class="location"><span class="ion-ios-map"></span>  Indonesia</p>
                     </div>
                 </div>

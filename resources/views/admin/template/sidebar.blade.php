@@ -19,15 +19,43 @@
 
 
                 @if(auth()->user()->role == 'peternak')
-                    @include('peternak.sidebar')
+                @include('peternak.sidebar')
                 @else
 
-               
+                <li class="sidebar-item">
+                    <a class="sidebar-link  {{request()->is('admin/dashboard') ? 'active' :''}}"
+                        href="{{url('admin/dashboard')}}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-layout-dashboard"></i>
+                        </span>
+                        <span class="hide-menu">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link {{request()->is('admin/ternak*') ? 'active' :''}}"
+                        href="{{url('admin/ternak')}}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-article"></i>
+                        </span>
+                        <span class="hide-menu">Ternak</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link  {{request()->is('admin/penjualan*') ? 'active' :''}}"
+                        href="{{url('admin/penjualan')}}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-article"></i>
+                        </span>
+                        <span class="hide-menu">Penjualan</span>
+                    </a>
+                </li>
 
                 @endif
-              
+
             </ul>
-         
+
         </nav>
         <!-- End Sidebar navigation -->
     </div>

@@ -14,6 +14,9 @@ class TernakController extends Controller
     public function index()
     {
         $data = ProfilKambing::where('user_id',auth()->user()->id)->get();
+        if(auth()->user()->role == 'admin'){
+            $data = ProfilKambing::get();
+        }
         return view('peternak.ternak',compact('data'));
     }
 
