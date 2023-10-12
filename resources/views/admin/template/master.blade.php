@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="{{asset('public/template-admin/assets/css/styles.min.css') }}" />
     <link rel="stylesheet" href="{{asset('public/template-admin/assets/css/dataTables.bootstrap5.min.css') }}">
     <link rel="stylesheet" href="{{asset('public/toastr/toastr.min.css') }}">
+    <style>
+        #navbarNav ul li a span{
+            font-size: 15px;
+            margin-right: 10px;
+        }
+    </style>
     @stack('css')
 
 </head>
