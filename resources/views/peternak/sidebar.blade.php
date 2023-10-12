@@ -17,7 +17,7 @@
 </li>
 
 <li class="sidebar-item">
-    <a class="sidebar-link  {{request()->is('peternakpenjualan') ? 'active' :''}}" href="{{url('peternak/penjualan')}}" aria-expanded="false">
+    <a class="sidebar-link  {{request()->is('peternak/penjualan*') ? 'active' :''}}" href="{{url('peternak/penjualan')}}" aria-expanded="false">
         <span>
             <i class="ti ti-article"></i>
         </span>

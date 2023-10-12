@@ -75,7 +75,7 @@
 
                         <span class="days">Umur {{$p->umur}} Tahun</span>
                         <h3><a href="#">{{$p->jenis}}</a></h3>
-                        <a href="https://api.whatsapp.com/send={{$p->no_wa}}" class="btn btn-sm float-right btn-primary">
+                        <a href="https://api.whatsapp.com/send={{$p->no_wa}}" class="btn btn-sm float-right btn-success ml-2">
                         <i class="fab fa-whatsapp"></i>
                         </a>
 
@@ -125,7 +125,39 @@
             </div> -->
    
         </div>
+        <div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                <li class="{{ $penjualan_ternak->currentPage() == 1 ? 'active' :'' }}">
+                    @if($penjualan_ternak->currentPage() == 1)
+                    <span>&lt;</span>
+                    @else
+                    <a href="{{  url('/?page='.$penjualan_ternak->currentPage() - 1 ) }}">&lt;</a>
+                    @endif
+                </li>
+
+                @for($i=1;$i<=$penjualan_ternak->lastPage();$i++)
+                @if($penjualan_ternak->currentPage() == $i)
+                <li class="active"><span>{{$i}}</span></li>
+                @else
+                <li><a href="{{url('/?page='.$i)}}">{{$i}}</a></li>
+                @endif
+                @endfor
+                <li class="{{ $penjualan_ternak->currentPage() == $penjualan_ternak->lastPage() ? 'active' :'' }}">
+                    @if($penjualan_ternak->currentPage() == $penjualan_ternak->lastPage())
+                    <span>&gt;</span>
+                    @else
+                    <a href="{{  url('/?page='.$penjualan_ternak->currentPage() + 1 ) }}">&gt;</a>
+                    @endif
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
     </div>
 </section>
+
+
 
 @endsection
