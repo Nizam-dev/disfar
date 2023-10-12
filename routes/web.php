@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AkunController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\InformasiKambingController;
@@ -76,6 +77,11 @@ Route::prefix('admin')->group(function () {
     Route::get('penjualan/edit/{id}',[PenjualanController::class,'edit']);
     Route::post('penjualan/edit/{id}',[PenjualanController::class,'edit_penjualan']);
     Route::get('penjualan/hapus/{id}',[PenjualanController::class,'hapus']);
+    Route::get('verifikasi_akun',[AkunController::class,'index']);
+    Route::get('edit-verifikasi_akun/{id}',[AkunController::class,'edit']);
+    Route::post('update-verifikasi_akun/{id}',[AkunController::class,'update']);
+
+    
 
 
 });
