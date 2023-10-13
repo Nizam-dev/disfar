@@ -75,10 +75,13 @@
 
                         <span class="days">Umur {{$p->umur}} Tahun</span>
                         <h3><a href="#">{{$p->jenis}}</a></h3>
-                        <a href="https://api.whatsapp.com/send={{$p->no_wa}}" class="btn btn-sm float-right btn-success ml-2">
-                        <i class="fab fa-whatsapp"></i>
-                        </a>
 
+
+                        <a href="https://api.whatsapp.com/send/?phone=%2B{{$p->no_wa}}" class="btn btn-sm float-right btn-success ml-2">
+                        <i class="fab fa-whatsapp"></i>
+                        
+                        </a>
+                      
                         <a href="{{url('kambing/'.$p->id)}}" class="btn btn-sm float-right btn-primary">Lihat</a>
                         <p class="location"><span class="ion-ios-map"></span>  Indonesia</p>
                     </div>

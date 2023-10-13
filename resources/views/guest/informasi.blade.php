@@ -44,7 +44,7 @@
 
 
 
-                <a href="https://api.whatsapp.com/send={{$data->no_wa}}"
+                <a href="https://api.whatsapp.com/send/?phone=%2B{{$data->no_wa}}"
                     class="float-right btn btn-success mb-5"> <i class="fa-brands fa-whatsapp"></i> Hubungi</a>
             </div>
         </div>

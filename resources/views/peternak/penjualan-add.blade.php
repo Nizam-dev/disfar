@@ -30,7 +30,7 @@ Tambah Penjualan</h5>
             </div>
 
             <div class="form-group">
-                <label for="" class="form-label">No Wa</label>
+                <label for="" class="form-label">No Wa(Tanpa Angka 0)</label>
                 <input type="text" class="form-control @error('no_wa') is-invalid @enderror" name="no_wa">
             </div>
 

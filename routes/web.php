@@ -28,7 +28,7 @@ Route::post('postregister', [AuthController::class, 'postregister']);
 Route::get('logout', [AuthController::class, 'logout']);
 
 // Peternak
-Route::middleware(['role:admin'])->group(function () {  
+Route::middleware(['role:peternak'])->group(function () {  
 Route::prefix('peternak')->group(function () {
 
     Route::get('dashboard',[PeternakDashboardController::class,'index']);
