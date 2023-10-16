@@ -68,7 +68,19 @@
                   </div>
                   <div class="mb-3">
                     <label for="exampleInput" class="form-label">Dusun</label>
-                    <input type="dusun" class="form-control" id="dusun" name="dusun">
+                    <!-- <input type="dusun" class="form-control" id="dusun" name="dusun"> -->
+                    <select name="dusun" class="form-control @error('dusun') is-invalid @enderror">
+                            <option value="Dusun Watugepeng">Dusun Watugepeng</option>
+                            <option value="Dusun Telemungsari">Dusun Telemungsari</option>
+                            <option value="Dusun Wonosuko">Dusun Wonosuko</option>
+                            <option value="Dusun Krajan">Dusun Krajan</option>
+                            <option value="Dusun Gedor">Dusun Gedor</option>
+      
+                        </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInput" class="form-label">Alamat</label>
+                    <input type="dusun" class="form-control" id="alamat" name="alamat">
                   </div>
                   <div class="mb-3">
                     <label for="exampleInput" class="form-label">Username</label>
@@ -84,9 +96,9 @@
                     <input type="password" class="form-control" id="Pk_assword" name="kpassword">
                   </div>
                   <div class="d-flex align-items-center justify-content-between mb-4">
-                   
+                  <a class="text-primary fw-bold" href="{{url('lupa-password')}}">Lupa Password ?</a>
                   </div>
-                  <button type="submit"  class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Masuk </button>
+                  <button type="submit"  class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Daftar </button>
              
                   
                 </form>

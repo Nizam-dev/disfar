@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('nama',30);
             $table->string('username',15);
             $table->string('dusun',20)->nullable();
+            $table->string('alamat',40)->nullable();
             $table->string('nohp',15);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -25,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('role',15);
             $table->enum('status_akun', ['0', '1'])
             ->default('0');
+            $table->string('token_lupapassword')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -41,12 +43,13 @@ class CreateUsersTable extends Migration
 
         User::create([
             'nama'=>' anam peternak',
-            'email'=>'peternak@gmail.com',
+            'email'=>'anam45188@gmail.com',
             'username'=>'peternak',
             'password'=>bcrypt(123),
             'role'=>'peternak',
             'nohp'=>'086181',
             'status_akun'=>"1",
+            'dusun'=>'Dusun Gedor'
 
         ]);
 

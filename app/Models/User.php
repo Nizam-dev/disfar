@@ -24,7 +24,7 @@ class User extends Authenticatable
         'username',
         'dusun',
         'nohp',
-        'status_akun','role'
+        'status_akun','role','token_lupapassword'
     ];
 
     /**
