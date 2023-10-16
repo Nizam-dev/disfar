@@ -39,6 +39,14 @@ Edit Penjualan</h5>
                 <input type="file" class="form-control @error('lampiran_foto') is-invalid @enderror" name="lampiran_foto" accept="image/*">
             </div>
 
+            <div class="form-group">
+                <lable class="form-label">Status</lable>
+                <select name="terjual" id="" class="form-control">
+                    <option value="0" {{$data->terjual ? '' : 'selected'}}>Belum Terjual</option>
+                    <option value="1" {{$data->terjual ? 'selected' : ''}}>Terjual</option>
+                </select>
+            </div>
+
             <button type="submit" class="btn btn-primary float-end mt-3">Simpan</button>
 
         </form>

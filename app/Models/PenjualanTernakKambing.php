@@ -16,6 +16,7 @@ class PenjualanTernakKambing extends Model
             'kisaran_harga_jual',
             'no_wa',
             'lampiran_foto',
+            'terjual'
 
     ];
 

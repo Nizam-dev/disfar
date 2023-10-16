@@ -9,10 +9,10 @@ class LandingPageController extends Controller
 {
     public function index(Request $request)
     {
-        $penjualan_ternak = PenjualanTernakKambing::paginate(12);
+        $penjualan_ternak = PenjualanTernakKambing::where('terjual',false)->paginate(12);
 
         if($request->has('cari')){
-            $penjualan_ternak = PenjualanTernakKambing::where('jenis','like','%'.$request->cari.'%')->paginate(12);
+            $penjualan_ternak = PenjualanTernakKambing::where('terjual',false)->where('jenis','like','%'.$request->cari.'%')->paginate(12);
         }
 
         foreach($penjualan_ternak as $p){

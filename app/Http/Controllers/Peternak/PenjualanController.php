@@ -65,6 +65,7 @@ class PenjualanController extends Controller
             'kelebihan_kekurangan'=>'required',
             'kisaran_harga_jual'=>'required',
             'no_wa'=>'required',
+            'terjual'=>'required',
         ]);
 
         if($request->hasFile('lampiran_foto')){

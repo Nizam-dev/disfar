@@ -29,6 +29,7 @@
                         <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Riwayat</h6>
                         </th>
+                     
                         <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Detail</h6>
                         </th>

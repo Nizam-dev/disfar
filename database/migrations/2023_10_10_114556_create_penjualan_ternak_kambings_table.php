@@ -23,6 +23,7 @@ class CreatePenjualanTernakKambingsTable extends Migration
             $table->string('kisaran_harga_jual',15);
             $table->string('no_wa',15);
             $table->string('lampiran_foto');
+            $table->boolean('terjual')->nullable()->default(false);
             $table->timestamps();
         });
 

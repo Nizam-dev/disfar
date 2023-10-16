@@ -34,6 +34,9 @@
                         <th>
                             <h6 class="fw-semibold mb-0">Foto</h6>
                         </th>
+                        <th>
+                            <h6 class="fw-semibold mb-0">Status</h6>
+                        </th>
                         <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Opsi</h6>
                         </th>
@@ -65,6 +68,13 @@
                             <img src="{{asset('public/images/kambing/'.$penjualan->lampiran_foto)}}" class="rounded"
                                 width='100px'>
 
+                        </td>
+                        <td>
+                            @if($penjualan->terjual)
+                                <span class="badge bg-danger rounded-3 fw-semibold">Terjual</span>
+                            @else
+                            <span class="badge bg-success rounded-3 fw-semibolds">Belum Terjual</span>
+                            @endif
                         </td>
                         <td>
                             @if(auth()->user()->role == 'admin' && auth()->user()->id != $penjualan->user_id)
