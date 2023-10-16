@@ -11,6 +11,7 @@ use App\Http\Controllers\Peternak\DashboardController as PeternakDashboardContro
 use App\Http\Controllers\Admin\DashboardController;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Peternak\EdukasiTernakController;
 
 Route::get('/', [LandingPageController::class, 'index']);
 Route::get('about', [LandingPageController::class, 'about']);
@@ -26,7 +27,12 @@ Route::get('/register', function () {
 Route::post('postlogin', [AuthController::class, 'postlogin']);
 Route::post('postregister', [AuthController::class, 'postregister']);
 Route::get('logout', [AuthController::class, 'logout']);
-
+Route::get('/lupa-password', function () {
+    return view('auth.lupa_password');
+});
+Route::post('/lupa_password', [AuthController::class, 'lupa_password_post'])->name('lupa_password');
+Route::get('/password_baru/{id}', [AuthController::class, 'password_baru'])->name('password_baru');
+Route::post('/password_baru/{id}', [AuthController::class, 'password_baru_post'])->name('password_baru');
 // Peternak
 Route::middleware(['role:peternak'])->group(function () {  
 Route::prefix('peternak')->group(function () {
@@ -52,6 +58,13 @@ Route::prefix('peternak')->group(function () {
     Route::get('penjualan/edit/{id}',[PenjualanController::class,'edit']);
     Route::post('penjualan/edit/{id}',[PenjualanController::class,'edit_penjualan']);
     Route::get('penjualan/hapus/{id}',[PenjualanController::class,'hapus']);
+
+    Route::get('kelolaedukasi',[EdukasiTernakController::class,'index']);
+    Route::get('kelolaedukasi/tambah',[EdukasiTernakController::class,'tambah']);
+    Route::post('kelolaedukasi/tambah',[EdukasiTernakController::class,'tambah_edukasi']);
+    Route::get('kelolaedukasi/edit/{id}',[EdukasiTernakController::class,'edit']);
+    Route::post('kelolaedukasi/edit/{id}',[EdukasiTernakController::class,'edit_edukasi']);
+    Route::get('kelolaedukasi/hapus/{id}',[EdukasiTernakController::class,'hapus']);
 
 
 });
@@ -82,6 +95,13 @@ Route::prefix('admin')->group(function () {
     Route::get('verifikasi_akun',[AkunController::class,'index']);
     Route::get('edit-verifikasi_akun/{id}',[AkunController::class,'edit']);
     Route::post('update-verifikasi_akun/{id}',[AkunController::class,'update']);
+    
+    Route::get('kelolaedukasi',[EdukasiTernakController::class,'index']);
+    Route::get('kelolaedukasi/tambah',[EdukasiTernakController::class,'tambah']);
+    Route::post('kelolaedukasi/tambah',[EdukasiTernakController::class,'tambah_edukasi']);
+    Route::get('kelolaedukasi/edit/{id}',[EdukasiTernakController::class,'edit']);
+    Route::post('kelolaedukasi/edit/{id}',[EdukasiTernakController::class,'edit_edukasi']);
+    Route::get('kelolaedukasi/hapus/{id}',[EdukasiTernakController::class,'hapus']);
 
 });
 

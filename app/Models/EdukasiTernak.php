@@ -13,4 +13,5 @@ class EdukasiTernak extends Model
         'isi_edukasi',
        'foto_edukasi'
     ];
+    
 }

@@ -12,7 +12,7 @@ class ProfilKambing extends Model
         'jenis_kambing',
             'umur',
             'kesehatan',
-            'user_id'
+            'user_id','nomor_ternak','jenis_kelamin_ternak','jenis_ternak','jumlah_ternak'
 
     ];
 

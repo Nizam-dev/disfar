@@ -15,7 +15,11 @@ class CreateProfilKambingsTable extends Migration
     {
         Schema::create('profil_kambings', function (Blueprint $table) {
             $table->id();
-            $table->string('jenis_kambing',15);
+            $table->string('nomor_ternak',15);
+            $table->string('jenis_kambing',50);
+            $table->string('jenis_kelamin_ternak',50);
+            $table->string('jenis_ternak',50);
+            $table->string('jumlah_ternak',15);
             $table->string('umur',15);
             $table->string('kesehatan',15);
             $table->foreignId('user_id')->constrained();

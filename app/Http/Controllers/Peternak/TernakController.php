@@ -31,6 +31,10 @@ class TernakController extends Controller
                 'jenis_kambing'=>'required',
                 'umur'=>'required',
                 'kesehatan'=>'required',
+                'nomor_ternak'=>'required',
+                'jenis_kelamin_ternak'=>'required',
+                'jenis_ternak'=>'required',
+                'jumlah_ternak'=>'required',
             ]);
 
             $data['user_id']=auth()->user()->id;
@@ -48,6 +52,10 @@ class TernakController extends Controller
             'jenis_kambing'=>'required',
             'umur'=>'required',
             'kesehatan'=>'required',
+            'nomor_ternak'=>'required',
+            'jenis_kelamin_ternak'=>'required',
+            'jenis_ternak'=>'required',
+            'jumlah_ternak'=>'required',
         ]);
 
         ProfilKambing::findOrFail($id)->update($data);
@@ -64,8 +72,10 @@ class TernakController extends Controller
 
     public function riwayat_reproduksi_kambing($id){
         $user_id = ProfilKambing::findOrFail($id)->user_id;
+        $profilkambing = ProfilKambing::findOrFail($id);
         $data = RiwayatReproduksiKambing::where('profil_kambing_id',$id)->get();
-        return view('peternak.ternak-riwayat-reproduksi',compact('data','id','user_id'));
+       
+        return view('peternak.ternak-riwayat-reproduksi',compact('data','id','user_id','profilkambing'));
     }
 
     public function tambah_riwayat_reproduksi_kambing($id, Request $request){
@@ -106,8 +116,10 @@ class TernakController extends Controller
 
     public function riwayat_kesehatan_kambing($id){
         $user_id = ProfilKambing::findOrFail($id)->user_id;
+        $profilkambing = ProfilKambing::findOrFail($id);
         $data = RiwayatKesehatanKambing::where('profil_kambing_id',$id)->get();
-        return view('peternak.ternak-riwayat-kesehatan',compact('data','id','user_id'));
+        // return $profilkambing;
+        return view('peternak.ternak-riwayat-kesehatan',compact('data','id','user_id','profilkambing'));
     }
 
     public function tambah_riwayat_kesehatan_kambing($id, Request $request){

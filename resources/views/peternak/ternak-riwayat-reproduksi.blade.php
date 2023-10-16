@@ -16,7 +16,8 @@
 <h5 class="fw-semibold">
 <a href="{{url( auth()->user()->role == 'admin' ? 'admin/ternak' : 'peternak/ternak')}}"><i class="ti ti-arrow-left bg-danger rounded-circle text-white"></i></a>
 Riwayat Reproduksi Kambing</h5>
-
+NOMOR TERNAK : {{$profilkambing->nomor_ternak}}<br>
+JENIS TERNAK : {{$profilkambing->jenis_ternak}}
 <div class="card">
     <div class="row">
         <div class="col-12" id="data-riwayat">

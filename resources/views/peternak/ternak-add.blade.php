@@ -12,6 +12,32 @@ Tambah Ternak</h5>
             @csrf
 
             <div class="form-group">
+                <label for="" class="form-label">Nomor Ternak</label>
+                <input type="text" class="form-control @error('nomor_ternak') is-invalid @enderror" name="nomor_ternak">
+            </div>
+            <div class="form-group">
+                <label for="" class="form-label">Jenis Kelamin Ternak</label>
+                <select name="jenis_kelamin_ternak" class="form-control @error('jenis_kelamin_ternak') is-invalid @enderror">
+                            <option value="alami">alami</option>
+                            <option value="buatan">buatan</option>
+                        </select>
+            
+            </div>
+            <div class="form-group">
+                <label for="" class="form-label">Jenis Ternak</label>
+                <select name="jenis_ternak" class="form-control @error('jenis_ternak') is-invalid @enderror">
+                            <option value="penggemukan">penggemukan</option>
+                            <option value="pemerahan(susu)">pemerahan(susu)</option>
+                            <option value="jual beli(cempe)">jual beli(cempe)</option>
+                        </select>
+                <!-- <input type="text" class="form-control @error('jenis_ternak') is-invalid @enderror" name="jenis_ternak"> -->
+            </div>
+            <div class="form-group">
+                <label for="" class="form-label">Jumlah Ternak</label>
+                <input type="text" class="form-control @error('jumlah_ternak') is-invalid @enderror" name="jumlah_ternak">
+            </div>
+
+            <div class="form-group">
                 <label for="" class="form-label">Jenis Kambing</label>
                 <input type="text" class="form-control @error('jenis_kambing') is-invalid @enderror" name="jenis_kambing">
             </div>

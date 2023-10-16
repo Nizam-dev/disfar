@@ -17,6 +17,8 @@
                     <span class="hide-menu">Home</span>
                 </li>
 
+                
+
 
                 @if(auth()->user()->role == 'peternak')
                 @include('peternak.sidebar')
@@ -61,8 +63,19 @@
                         <span class="hide-menu">Verifikasi Akun</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link  {{request()->is('admin/kelolaedukasi*') ? 'active' :''}}"
+                        href="{{url('admin/kelolaedukasi')}}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-article"></i>
+                        </span>
+                        <span class="hide-menu">Edukasi Ternak</span>
+                    </a>
+                </li>
 
                 @endif
+
+               
 
             </ul>
 
