@@ -62,6 +62,13 @@ class TernakController extends Controller
         return redirect(auth()->user()->role == 'admin' ? 'admin/ternak' : 'peternak/ternak')
         ->with('success','Profil Kambing Berhasil Diubah');
     }
+
+    public function detail_ternak($id)
+    {
+        $data = ProfilKambing::with(['riwayat_kesehatan','riwayat_reproduksi'])->findOrFail($id);
+        return view('peternak.ternak-detail',compact('data'));
+    }
+
     public function hapus_profil_kambing($id)
     {
         ProfilKambing::findOrFail($id)->delete();

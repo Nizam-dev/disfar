@@ -16,6 +16,7 @@ use App\Http\Controllers\Peternak\EdukasiTernakController;
 Route::get('/', [LandingPageController::class, 'index']);
 Route::get('about', [LandingPageController::class, 'about']);
 Route::get('edukasi', [EdukasiController::class, 'index']);
+Route::get('edukasi/{id}', [EdukasiController::class, 'detail']);
 Route::get('kambing/{id}',[InformasiKambingController::class,'informasi']);
 Route::get('/login', function () {
     return view('auth.login');
@@ -52,6 +53,7 @@ Route::prefix('peternak')->group(function () {
     Route::post('ternak/edit-riwayat-kesehatan/{id}',[TernakController::class,'edit_riwayat_kesehatan_kambing']);
     Route::get('ternak/hapus-riwayat-kesehatan/{id}',[TernakController::class,'hapus_riwayat_kesehatan_kambing']);
     Route::get('ternak/hapus-riwayat-reproduksi/{id}',[TernakController::class,'hapus_riwayat_reproduksi_kambing']);
+    Route::get('ternak/detail/{id}',[TernakController::class,'detail_ternak']);
     Route::get('penjualan',[PenjualanController::class,'index']);
     Route::get('penjualan/tambah',[PenjualanController::class,'tambah']);
     Route::post('penjualan/tambah',[PenjualanController::class,'tambah_penjualan']);
@@ -86,6 +88,7 @@ Route::prefix('admin')->group(function () {
     Route::post('ternak/edit-riwayat-kesehatan/{id}',[TernakController::class,'edit_riwayat_kesehatan_kambing']);
     Route::get('ternak/hapus-riwayat-kesehatan/{id}',[TernakController::class,'hapus_riwayat_kesehatan_kambing']);
     Route::get('ternak/hapus-riwayat-reproduksi/{id}',[TernakController::class,'hapus_riwayat_reproduksi_kambing']);
+    Route::get('ternak/detail/{id}',[TernakController::class,'detail_ternak']);
     Route::get('penjualan',[PenjualanController::class,'index']);
     Route::get('penjualan/tambah',[PenjualanController::class,'tambah']);
     Route::post('penjualan/tambah',[PenjualanController::class,'tambah_penjualan']);

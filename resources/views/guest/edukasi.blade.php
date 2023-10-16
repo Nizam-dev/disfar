@@ -24,17 +24,19 @@
             </div>
         </div>
         <div class="row">
+
+            @foreach($data as $edukasi)
             <div class="col-md-3 ftco-animate">
                 <div class="project-destination">
-                    <a href="#" class="img" style="background-image: url( {{url('public/images/kambing/kambing1.jpeg')}} );">
+                    <a href="{{url('edukasi/'.$edukasi->id)}}" class="img" style="background-image: url( {{url('public/images/kambing/'.$edukasi->foto_edukasi)}} );">
                         <div class="text">
-                            <h3>Jenis Edukasi</h3>
+                            <h3>{{$edukasi->jenis_edukasi}}</h3>
                             <span>Lihat</span>
                         </div>
                     </a>
                 </div>
             </div>
-         
+            @endforeach         
         </div>
     </div>
 </section>
