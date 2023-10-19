@@ -17,7 +17,7 @@ Tambah Edukasi Ternak</h5>
             </div>
             <div class="form-group">
                 <label for="" class="form-label">Isi Edukasi</label>
-                <input type="text" class="form-control @error('isi_edukasi') is-invalid @enderror" name="isi_edukasi">
+                <textarea type="text" class="form-control @error('isi_edukasi') is-invalid @enderror" name="isi_edukasi"></textarea>
             </div>
             
 

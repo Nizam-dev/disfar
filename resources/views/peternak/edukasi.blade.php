@@ -52,7 +52,7 @@
                         </td>
                         <td>
                           
-                                <a href="{{url('peternak/edukasi/edit/'.$edukasi->id)}}" class="btn btn-sm btn-warning">
+                                <a href="{{url('peternak/kelolaedukasi/edit/'.$edukasi->id)}}" class="btn btn-sm btn-warning">
                                     <i class="ti ti-pencil"></i>
                                 </a>
                                 <a class="btn btn-sm btn-danger" onClick="opsi_hapus('{{$edukasi->id}}')">
