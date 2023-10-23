@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\PenjualanTernakKambing;
 use Illuminate\Http\Request;
 
+
 class LandingPageController extends Controller
 {
     public function index(Request $request)
     {
+     
         $penjualan_ternak = PenjualanTernakKambing::where('terjual',false)->paginate(12);
 
         if($request->has('cari')){
