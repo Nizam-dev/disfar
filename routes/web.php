@@ -18,13 +18,15 @@ Route::get('about', [LandingPageController::class, 'about']);
 Route::get('edukasi', [EdukasiController::class, 'index']);
 Route::get('edukasi/{id}', [EdukasiController::class, 'detail']);
 Route::get('kambing/{id}',[InformasiKambingController::class,'informasi']);
-Route::get('/login', function () {
-    return view('auth.login');
-});
+// Route::get('/login', function () {
+//     return view('auth.login');
+// });
 
 Route::get('/register', function () {
     return view('auth.register');
 });
+Route::get('login', [AuthController::class, 'login']);
+Route::post('postlogin', [AuthController::class, 'postlogin']);
 Route::post('postlogin', [AuthController::class, 'postlogin']);
 Route::post('postregister', [AuthController::class, 'postregister']);
 Route::get('logout', [AuthController::class, 'logout']);
@@ -67,6 +69,11 @@ Route::prefix('peternak')->group(function () {
     Route::get('kelolaedukasi/edit/{id}',[EdukasiTernakController::class,'edit']);
     Route::post('kelolaedukasi/edit/{id}',[EdukasiTernakController::class,'edit_edukasi']);
     Route::get('kelolaedukasi/hapus/{id}',[EdukasiTernakController::class,'hapus']);
+
+    Route::get('profil',[AuthController::class,'getprofil']);
+    Route::post('profil',[AuthController::class,'profile_update']);
+    Route::get('profile/ganti-password', [AuthController::class,'ganti_password'])->name('user.ganti_password');
+    Route::post('profile/ganti-password', [AuthController::class,'update_password'])->name('user.ganti_password.update');
 
 
 });

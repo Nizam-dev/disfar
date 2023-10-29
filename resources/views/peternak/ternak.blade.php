@@ -71,10 +71,17 @@
                             </a>
                         </td>
                         <td>
-                            @if(auth()->user()->role == 'admin' && auth()->user()->id != $kambing->user_id)
+                            @if(auth()->user()->role == 'admin')
                             <span class="badge bg-primary rounded-3 ">
                                 {{$kambing->user->nama}}
                             </span>
+                            <a href="{{url( auth()->user()->role == 'admin' ?  'admin/ternak/edit/'.$kambing->id : 'peternak/ternak/edit/'.$kambing->id)}}"
+                                class="btn btn-sm btn-warning">
+                                <i class="ti ti-pencil"></i>
+                            </a>
+                            <a class="btn btn-sm btn-danger" onClick="opsi_hapus('{{$kambing->id}}')">
+                                <i class="ti ti-trash"></i>
+                            </a>
                             @else
                             <a href="{{url( auth()->user()->role == 'admin' ?  'admin/ternak/edit/'.$kambing->id : 'peternak/ternak/edit/'.$kambing->id)}}"
                                 class="btn btn-sm btn-warning">

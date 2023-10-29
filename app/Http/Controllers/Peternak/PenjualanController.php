@@ -36,6 +36,7 @@ class PenjualanController extends Controller
         ]);
         
         $data['user_id'] = auth()->user()->id; 
+        $data['terjual'] = 'belum'; 
 
         if($request->hasFile('lampiran_foto')){
             $tujuan_upload = public_path('images/kambing');

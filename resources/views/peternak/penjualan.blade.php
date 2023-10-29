@@ -77,10 +77,16 @@
                             @endif
                         </td>
                         <td>
-                            @if(auth()->user()->role == 'admin' && auth()->user()->id != $penjualan->user_id)
+                            @if(auth()->user()->role == 'admin')
                                     <span class="badge bg-primary rounded-3 ">
                                         {{$penjualan->user->nama}}
                                     </span>
+                                    <a href="{{url( auth()->user()->role == 'admin' ? 'admin/penjualan/edit/'.$penjualan->id :  'peternak/penjualan/edit/'.$penjualan->id)}}" class="btn btn-sm btn-warning">
+                                    <i class="ti ti-pencil"></i>
+                                </a>
+                                <a class="btn btn-sm btn-danger" onClick="opsi_hapus('{{$penjualan->id}}')">
+                                    <i class="ti ti-trash"></i>
+                                </a>
                             @else
                                 <a href="{{url( auth()->user()->role == 'admin' ? 'admin/penjualan/edit/'.$penjualan->id :  'peternak/penjualan/edit/'.$penjualan->id)}}" class="btn btn-sm btn-warning">
                                     <i class="ti ti-pencil"></i>

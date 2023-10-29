@@ -40,7 +40,7 @@ class Kernel extends ConsoleKernel
             }
 
                 Log::info('Cronjob berhasil dijalankan');
-            })->dailyAt("07:00");
+            })->dailyAt("12:51");
     }
 
     /**

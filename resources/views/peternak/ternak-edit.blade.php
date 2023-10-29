@@ -46,7 +46,7 @@
             </div>
             <div class="form-group">
                 <label for="" class="form-label">Umur</label>
-                <input type="text" class="form-control @error('umur') is-invalid @enderror" name="umur" value="{{$data->umur}}">
+                <input type="number" class="form-control @error('umur') is-invalid @enderror" name="umur" value="{{$data->umur}}">
             </div>
             <div class="form-group">
                 <label for="" class="form-label">Kesehatan</label>

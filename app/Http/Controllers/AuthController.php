@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -261,5 +262,59 @@ class AuthController extends Controller
 		return $randomString;
 	}
 
+
+    
+    public function getprofil(){
+        $users =User::where('id',auth()->user()->id)->first();
+        // $users->foto = asset('public/images/profil/'.$users->foto);
+        // return $users;
+
+        return view('peternak.profil',compact('users'));
+    }
+
+    public function profile_update(Request $request)
+    {
+        $req = $request->all();
+        if($request->password){
+            auth()->user()->update([
+                'password'=> bcrypt($request->password)
+            ]);
+
+
+        }else{
+           
+            if($request->hasFile('foto')){
+                $tujuan_upload = public_path('images/profil');
+                $file = $request->file('foto');
+                $namaFile = Carbon::now()->format('Ymd') . $file->getClientOriginalName();
+                $file->move($tujuan_upload, $namaFile);
+                // return $file;
+                $req['foto'] = $namaFile;
+            }
+            // return $req;
+            auth()->user()->update($req);
+        }
+
+       
+        return redirect('peternak/profil')->with('success','Profile Admin Berhasil diupdate');
+    }
+
+    public function ganti_password()
+    {
+        return view('peternak.profil_password');
+    }
+
+    public function update_password(Request $request)
+    {
+        $request->validate([
+            'password'=>'required'
+        ]);
+
+        auth()->user()->update([
+            'password'=>bcrypt($request->password)
+        ]);
+
+        return redirect('peternak/dashboard')->with('success','Password Berhasil diupdate');
+    }
 
 }

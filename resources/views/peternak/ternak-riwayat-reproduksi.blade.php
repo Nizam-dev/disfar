@@ -22,9 +22,9 @@ JENIS TERNAK : {{$profilkambing->jenis_ternak}}
     <div class="row">
         <div class="col-12" id="data-riwayat">
             <h1 class="px-3 py-3">
-                @if(auth()->user()->id == $user_id)
+                
                 <button onClick="opsi_tambah()" class="btn btn-sm btn-primary float-end">Tambah</button>
-                @endif
+           
             </h1>
             <div class="card-body">
 
@@ -51,11 +51,11 @@ JENIS TERNAK : {{$profilkambing->jenis_ternak}}
                                 <th class="border-bottom-0">
                                     <h6 class="fw-semibold mb-0">Tanggal Melahirkan</h6>
                                 </th>
-                                @if(auth()->user()->id == $user_id)
+                              
                                 <th class="border-bottom-0">
                                     <h6 class="fw-semibold mb-0">Opsi</h6>
                                 </th>
-                                @endif
+                              
                             </tr>
                         </thead>
                         <tbody>
@@ -68,7 +68,7 @@ JENIS TERNAK : {{$profilkambing->jenis_ternak}}
                                 <td>{{$riwayat->kawin_ternak}}</td>
                                 <td>{{$riwayat->tanggal_kawin}}</td>
                                 <td>{{$riwayat->tanggal_melahirkan}}</td>
-                                @if(auth()->user()->id == $user_id)
+                               
                                 <td>
                                     <a  class="btn btn-sm btn-warning" onClick="opsi_edit(this,{{$riwayat}})">
                                         <i class="ti ti-pencil"></i>
@@ -77,7 +77,7 @@ JENIS TERNAK : {{$profilkambing->jenis_ternak}}
                                         <i class="ti ti-trash"></i>
                                     </a>
                                 </td>
-                                @endif
+                             
                             </tr>
                             @endforeach
 

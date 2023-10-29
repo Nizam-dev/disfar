@@ -17,7 +17,7 @@ Tambah Penjualan</h5>
             </div>
             <div class="form-group">
                 <label for="" class="form-label">Umur</label>
-                <input type="text" class="form-control @error('umur') is-invalid @enderror" name="umur">
+                <input type="number" class="form-control @error('umur') is-invalid @enderror" name="umur">
             </div>
             <div class="form-group">
                 <label for="" class="form-label">Kelebihan Kekurangan</label>
@@ -31,7 +31,7 @@ Tambah Penjualan</h5>
 
             <div class="form-group">
                 <label for="" class="form-label">No Wa(Tanpa Angka 0)</label>
-                <input type="text" class="form-control @error('no_wa') is-invalid @enderror" name="no_wa">
+                <input type="number" class="form-control @error('no_wa') is-invalid @enderror" name="no_wa">
             </div>
 
             <div class="form-group">

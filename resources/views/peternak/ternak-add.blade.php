@@ -43,7 +43,7 @@ Tambah Ternak</h5>
             </div>
             <div class="form-group">
                 <label for="" class="form-label">Umur</label>
-                <input type="text" class="form-control @error('umur') is-invalid @enderror" name="umur">
+                <input type="number" class="form-control @error('umur') is-invalid @enderror" name="umur">
             </div>
             <div class="form-group">
                 <label for="" class="form-label">Kesehatan</label>
