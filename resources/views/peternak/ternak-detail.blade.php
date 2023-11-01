@@ -7,6 +7,9 @@
             <h4 class="card-title">
             <a href="{{url( auth()->user()->role == 'admin' ? 'admin/ternak' : 'peternak/ternak')}}"><i class="ti ti-arrow-left bg-danger rounded-circle text-white"></i></a>    
             Detail Ternak</h4>
+            <a href="{{ url(auth()->user()->role == 'admin' ? 'admin/ternak/edit/'.$data->id : 'peternak/ternak/edit/'.$data->id) }}">
+        <button class="btn btn-sm btn-warning">Edit</button>
+    </a>
 
             <table class="table table-bordered">
                <tbody>
@@ -47,7 +50,13 @@
 
 <div class="card">
     <div class="card-body">
-            <h6 class="card-title">Riwayat Reproduksi</h6>
+    <h4 style="display: flex; justify-content: space-between;">Riwayat Reproduksi
+    <a href="{{ url(auth()->user()->role == 'admin' ? 'admin/ternak/riwayat-reproduksi/'.$data->id : 'peternak/ternak/riwayat-reproduksi/'.$data->id) }}">
+        <button class="btn btn-sm btn-warning">Edit</button>
+    </a>
+</h4>
+
+            <!-- <h6 class="card-title">Riwayat Reproduksi</h6> -->
             <table class="table table-bordered">
                 <thead class="bg-warning text-white">
                     <th>No</th>
@@ -79,7 +88,14 @@
 
 <div class="card">
     <div class="card-body">
-            <h6 class="card-title">Riwayat Kesehatan</h6>
+            <!-- <h6 class="card-title">Riwayat Kesehatan</h6> -->
+            <h4 style="display: flex; justify-content: space-between;">Riwayat Kesehatan
+    <a href="{{ url(auth()->user()->role == 'admin' ? 'admin/ternak/riwayat-kesehatan/'.$data->id : 'peternak/ternak/riwayat-kesehatan/'.$data->id) }}">
+        <button class="btn btn-sm btn-warning">Edit</button>
+    </a>
+</h4>
+
+       
             <table class="table table-bordered">
                 <thead class="bg-warning text-white">
                     <th>No</th>
